@@ -46,6 +46,25 @@
         companyName: ["[class*='company'][class*='title']", "[class*='company-name']", "[class*='company'] a"],
         address: ["[class*='address']", "[class*='work-address']", "[class*='job-address']"]
       }
+    },
+    {
+      source: "liepin",
+      host: /(^|\.)liepin\.com$/i,
+      detailUrl: /liepin\.com\/job\/\d+\.shtml/i,
+      cardSelectors: [".job-card-pc-container", ".job-card", ".sojob-item-main", "[class*='job-card']", "[class*='job-list'] [class*='item']", "[class*='job'] [class*='card']"],
+      titleSelectors: [".job-title-box a", ".job-title", "[class*='job-title']", "[class*='title']", "a"],
+      companySelectors: [".company-name-box a", ".company-name", "[class*='company-name']", "[class*='company']"],
+      salarySelectors: [".job-salary", ".salary", "[class*='salary']", "[class*='pay']"],
+      metaSelectors: [".job-dq-box", ".job-labels-box", ".job-properties", "[class*='job-label']", "[class*='require']", "[class*='info']"],
+      tagSelectors: [".job-labels-box span", ".labels span", "[class*='tag'] span", "[class*='label'] span"],
+      detail: {
+        header: ["[class*='job-hero']", "[class*='job-intro']", "[class*='job-detail']", "[class*='position']"],
+        title: ["h1", "[class*='job-title']", "[class*='title']"],
+        description: ["[class*='job-intro-container']", "[class*='job-description']", "[class*='job-detail']", "[class*='require']", "[class*='responsibility']", "[class*='content']"],
+        companyInfo: ["[class*='company-intro']", "[class*='company-info']", "[class*='company-detail']", "[class*='company']"],
+        companyName: ["[class*='company-name']", "[class*='company'] a"],
+        address: ["[class*='work-address']", "[class*='job-address']", "[class*='address']"]
+      }
     }
   ];
 
@@ -168,7 +187,8 @@
     const decoded = String(text || "");
     const patterns = [
       /https?:\/\/jobs\.51job\.com\/[^"'<>\\\s]+\/\d+\.html(?:\?[^"'<>\\\s]*)?/gi,
-      /https?:\/\/www\.zhaopin\.com\/jobdetail\/[^"'<>\\\s]+\.htm(?:\?[^"'<>\\\s]*)?/gi
+      /https?:\/\/www\.zhaopin\.com\/jobdetail\/[^"'<>\\\s]+\.htm(?:\?[^"'<>\\\s]*)?/gi,
+      /https?:\/\/(?:www\.)?liepin\.com\/job\/\d+\.shtml(?:\?[^"'<>\\\s]*)?/gi
     ];
     patterns.forEach((pattern) => {
       (decoded.match(pattern) || []).forEach((match) => {
@@ -406,14 +426,14 @@
 
   function keyOf(job) {
     const url = String(job.url || "").replace(/[?#].*$/, "");
-    return /\/\d+\.html$|\/jobdetail\/.+\.htm$/i.test(url) ? `url|${url}` : [job.source, job.title, job.company, job.city, job.salary, url].join("|");
+    return /\/\d+\.html$|\/jobdetail\/.+\.htm$|\/job\/\d+\.shtml$/i.test(url) ? `url|${url}` : [job.source, job.title, job.company, job.city, job.salary, url].join("|");
   }
 
   function quality(job) {
     return ["title", "company", "city", "salary", "experience", "education", "tags", "description", "company_info", "address", "url"].reduce((score, field) => {
       const value = job[field];
       return score + (Array.isArray(value) ? value.length > 0 : String(value || "").trim() ? 1 : 0);
-    }, /\/\d+\.html|\/jobdetail\/.+\.htm/i.test(String(job.url || "")) ? 5 : 0);
+    }, /\/\d+\.html|\/jobdetail\/.+\.htm|\/job\/\d+\.shtml/i.test(String(job.url || "")) ? 5 : 0);
   }
 
   function merge(existing, incoming) {
