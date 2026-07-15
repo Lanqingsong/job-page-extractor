@@ -1,0 +1,169 @@
+:root {
+  color-scheme: light;
+  font-family: Inter, "Segoe UI", "Microsoft YaHei", sans-serif;
+}
+
+body {
+  width: 340px;
+  margin: 0;
+  color: #1f2937;
+  background: #f7f8fb;
+}
+
+.panel {
+  padding: 16px;
+}
+
+.header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0;
+}
+
+#siteHint {
+  margin-top: 4px;
+  color: #667085;
+  font-size: 12px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  margin-top: 5px;
+  border-radius: 50%;
+  background: #98a2b3;
+}
+
+.dot.busy {
+  background: #f79009;
+}
+
+.dot.ok {
+  background: #12b76a;
+}
+
+.dot.error {
+  background: #f04438;
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+label {
+  display: grid;
+  gap: 6px;
+  color: #475467;
+  font-size: 12px;
+}
+
+input[type="number"] {
+  height: 34px;
+  padding: 0 10px;
+  border: 1px solid #d0d5dd;
+  border-radius: 6px;
+  color: #1d2939;
+  background: #fff;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.primary,
+button {
+  height: 36px;
+  border: 1px solid #cfd4dc;
+  border-radius: 6px;
+  color: #1f2937;
+  background: #fff;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.primary {
+  width: 100%;
+  margin-top: 14px;
+  border-color: #245bd6;
+  color: #fff;
+  background: #245bd6;
+}
+
+.secondary {
+  width: 100%;
+  margin-top: 8px;
+  border-color: #b7c3d8;
+  color: #245bd6;
+  background: #fff;
+}
+
+button:disabled {
+  color: #98a2b3;
+  cursor: not-allowed;
+  background: #f2f4f7;
+}
+
+.result {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 14px;
+}
+
+.metric {
+  padding: 10px;
+  border: 1px solid #eaecf0;
+  border-radius: 8px;
+  background: #fff;
+}
+
+.metric span {
+  display: block;
+  color: #667085;
+  font-size: 12px;
+}
+
+.metric strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 18px;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.ghost {
+  width: 100%;
+  margin-top: 8px;
+  color: #475467;
+  font-weight: 500;
+}
+
+.message {
+  min-height: 18px;
+  margin-top: 12px;
+  color: #667085;
+  font-size: 12px;
+  line-height: 1.45;
+}

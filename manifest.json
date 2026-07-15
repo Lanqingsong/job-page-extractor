@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Job Page Extractor",
+  "version": "0.1.0",
+  "description": "Extract visible job listings from recruitment pages for personal job-market analysis.",
+  "permissions": ["activeTab", "scripting", "downloads", "storage"],
+  "host_permissions": ["https://jobs.51job.com/*"],
+  "content_scripts": [
+    {
+      "matches": ["https://jobs.51job.com/*/*.html*"],
+      "js": ["content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_title": "Extract jobs",
+    "default_popup": "popup.html"
+  }
+}
