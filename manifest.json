@@ -4,10 +4,13 @@
   "version": "0.1.0",
   "description": "Extract visible job listings from recruitment pages for personal job-market analysis.",
   "permissions": ["activeTab", "scripting", "downloads", "storage"],
-  "host_permissions": ["https://jobs.51job.com/*"],
+  "host_permissions": ["https://jobs.51job.com/*", "https://www.zhaopin.com/*"],
   "content_scripts": [
     {
-      "matches": ["https://jobs.51job.com/*/*.html*"],
+      "matches": [
+        "https://jobs.51job.com/*/*.html*",
+        "https://www.zhaopin.com/jobdetail/*"
+      ],
       "js": ["content.js"],
       "run_at": "document_idle"
     }

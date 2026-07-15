@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="zh-CN">
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -10,53 +10,53 @@
     <main class="panel">
       <header class="header">
         <div>
-          <h1>&#x5c97;&#x4f4d;&#x63d0;&#x53d6;</h1>
-          <p id="siteHint">&#x6253;&#x5f00;&#x62db;&#x8058;&#x641c;&#x7d22;&#x9875;&#x6216;&#x5c97;&#x4f4d;&#x8be6;&#x60c5;&#x9875;&#x540e;&#x5f00;&#x59cb;&#x91c7;&#x96c6;</p>
+          <h1>Job Extractor</h1>
+          <p id="siteHint">Open a job list or detail page to collect postings</p>
         </div>
         <span id="statusDot" class="dot idle"></span>
       </header>
 
       <section class="controls">
         <label>
-          &#x6eda;&#x52a8;&#x8f6e;&#x6570;
+          Scroll rounds
           <input id="scrollRounds" type="number" min="0" max="30" value="8" />
         </label>
         <label>
-          &#x6bcf;&#x8f6e;&#x7b49;&#x5f85;(ms)
+          Wait per round (ms)
           <input id="waitMs" type="number" min="300" max="5000" step="100" value="1200" />
         </label>
       </section>
 
       <label class="check">
         <input id="includeDetails" type="checkbox" />
-        <span>&#x4fdd;&#x7559;&#x5361;&#x7247;&#x539f;&#x6587;</span>
+        <span>Keep card raw text</span>
       </label>
 
       <label class="check">
         <input id="autoDetail" type="checkbox" />
-        <span>&#x6253;&#x5f00; 51job &#x5c97;&#x4f4d;&#x8be6;&#x60c5;&#x9875;&#x65f6;&#x81ea;&#x52a8;&#x91c7;&#x96c6;</span>
+        <span>Auto-save supported job detail pages</span>
       </label>
 
-      <button id="collectBtn" class="primary">&#x667a;&#x80fd;&#x91c7;&#x96c6;&#x5f53;&#x524d;&#x5217;&#x8868;&#x9875;</button>
-      <button id="detailBtn" class="secondary">&#x91c7;&#x96c6;&#x5f53;&#x524d;&#x5c97;&#x4f4d;&#x8be6;&#x60c5;&#x9875;</button>
+      <button id="collectBtn" class="primary">Collect Current List Page</button>
+      <button id="detailBtn" class="secondary">Collect Current Detail Page</button>
 
       <section class="result">
         <div class="metric">
-          <span>&#x672c;&#x6b21;&#x63d0;&#x53d6;</span>
+          <span>This run</span>
           <strong id="count">0</strong>
         </div>
         <div class="metric">
-          <span>&#x672c;&#x5730;&#x7d2f;&#x8ba1;</span>
+          <span>Local total</span>
           <strong id="totalCount">0</strong>
         </div>
       </section>
 
       <div class="actions">
-        <button id="copyBtn" disabled>&#x590d;&#x5236;&#x5168;&#x90e8;</button>
-        <button id="csvBtn" disabled>&#x4e0b;&#x8f7d; CSV</button>
-        <button id="jsonBtn" disabled>&#x4e0b;&#x8f7d; JSON</button>
+        <button id="copyBtn" disabled>Copy JSON</button>
+        <button id="csvBtn" disabled>Download CSV</button>
+        <button id="jsonBtn" disabled>Download JSON</button>
       </div>
-      <button id="clearBtn" class="ghost" disabled>&#x6e05;&#x7a7a;&#x672c;&#x5730;&#x7d2f;&#x8ba1;&#x5e93;</button>
+      <button id="clearBtn" class="ghost" disabled>Clear Local Dataset</button>
 
       <p id="message" class="message"></p>
     </main>

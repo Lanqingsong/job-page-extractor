@@ -6,9 +6,16 @@ A local-first Chrome extension for saving job postings that are normally visible
 
 - Extract visible job cards from recruitment search/list pages.
 - Extract structured details from supported job detail pages, including title, company, salary, city, experience, education, description, company info, address, and URL.
-- Automatically save supported 51job detail pages when the user opens them.
+- Automatically save supported job detail pages when the user opens them.
 - Store all collected data locally in `chrome.storage.local`.
 - Export the local dataset as CSV or JSON.
+
+## Supported sites
+
+- 51job detail pages: `https://jobs.51job.com/.../*.html`
+- Zhaopin detail pages: `https://www.zhaopin.com/jobdetail/*.htm`
+
+Other job list/detail pages may work through generic DOM heuristics, but they are not guaranteed.
 
 ## What it does not do
 
@@ -30,10 +37,10 @@ Users are responsible for complying with the terms of the websites they visit.
 
 Open a supported recruitment page, then click the extension icon.
 
-- Use `智能采集当前列表页` to extract visible job cards from a list page.
-- Use `采集当前岗位详情页` to extract the currently open job detail page.
-- Keep `打开 51job 岗位详情页时自动采集` enabled to automatically save 51job detail pages as you open them.
-- Use `下载 CSV` or `下载 JSON` to export the local dataset.
+- Use `Collect Current List Page` to extract visible job cards from a list page.
+- Use `Collect Current Detail Page` to extract the currently open job detail page.
+- Keep `Auto-save supported job detail pages` enabled to automatically save supported detail pages as you open them.
+- Use `Download CSV` or `Download JSON` to export the local dataset.
 
 ## Data storage
 

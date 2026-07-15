@@ -5,20 +5,20 @@ const state = {
 
 const $ = (id) => document.getElementById(id);
 const t = {
-  complete: "\u5b8c\u6210",
-  noTab: "\u6ca1\u6709\u627e\u5230\u5f53\u524d\u6807\u7b7e\u9875",
-  collectingList: "\u6b63\u5728\u6eda\u52a8\u5e76\u63d0\u53d6\u9875\u9762\u53ef\u89c1\u5c97\u4f4d...",
-  collectingDetail: "\u6b63\u5728\u63d0\u53d6\u5f53\u524d\u5c97\u4f4d\u8be6\u60c5\u9875...",
-  collectFailed: "\u91c7\u96c6\u5931\u8d25",
-  detailFailed: "\u8be6\u60c5\u9875\u91c7\u96c6\u5931\u8d25",
-  copied: "\u7d2f\u8ba1 JSON \u5df2\u590d\u5236",
-  cleared: "\u672c\u5730\u7d2f\u8ba1\u5e93\u5df2\u6e05\u7a7a",
-  inaccessible: "\u5f53\u524d\u9875\u9762\u4e0d\u53ef\u8bbf\u95ee",
-  autoOn: "\u5df2\u5f00\u542f\u81ea\u52a8\u8be6\u60c5\u91c7\u96c6",
-  autoOff: "\u5df2\u5173\u95ed\u81ea\u52a8\u8be6\u60c5\u91c7\u96c6",
-  listLabel: "\u672c\u6b21\u63d0\u53d6",
-  detailLabel: "\u8be6\u60c5\u9875\u63d0\u53d6",
-  storageUpdated: "\u7d2f\u8ba1\u5e93\u5df2\u66f4\u65b0"
+  complete: "Complete",
+  noTab: "No active tab found",
+  collectingList: "Scrolling and collecting visible job cards...",
+  collectingDetail: "Collecting the current job detail page...",
+  collectFailed: "Collection failed",
+  detailFailed: "Detail page collection failed",
+  copied: "JSON copied",
+  cleared: "Local dataset cleared",
+  inaccessible: "Current page is not accessible",
+  autoOn: "Auto detail collection enabled",
+  autoOff: "Auto detail collection disabled",
+  listLabel: "List page",
+  detailLabel: "Detail page",
+  storageUpdated: "Local dataset updated"
 };
 
 function setBusy(isBusy, message = "") {
@@ -165,7 +165,7 @@ async function mergeAndReport(result, label) {
   const merged = mergeJobs(state.dataset, result.jobs);
   const added = merged.length - state.dataset.length;
   await saveDataset(merged);
-  $("message").textContent = `${label} ${result.jobs.length} \u6761, \u65b0\u589e ${added} \u6761, \u7d2f\u8ba1 ${merged.length} \u6761`;
+  $("message").textContent = `${label}: ${result.jobs.length} found, ${added} new, ${merged.length} total`;
 }
 
 $("collectBtn").addEventListener("click", async () => {
